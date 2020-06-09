@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Enter your tag name, e.g. node16"
+
+read tagname
+
+imageName="uphotel/headless-chrome:$tagname"
+
+echo "Image will be $imageName. OK? [Enter] to continue, [Ctrl+C] to cancel"
+read _
+
+docker build -t "$imageName" .
+docker push "${imageName}"
